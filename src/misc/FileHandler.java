@@ -1,14 +1,20 @@
 package misc;
 
 import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.IOException;
 import java.util.*;
 
 public class FileHandler {
-    public static Set<String> readDict(BufferedReader br) throws IOException {
+    public Set<String> readDict(String file_path) throws IOException {
         Set<String> dict = new HashSet<>();
-        for (String curr_line = br.readLine(); curr_line!=null; br.readLine()) {
-            dict.add(curr_line);
+        try (BufferedReader br = new BufferedReader(new FileReader(file_path))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                dict.add(line.trim());
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
         }
         return dict;
     }

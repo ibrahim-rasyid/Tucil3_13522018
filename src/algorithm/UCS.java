@@ -14,7 +14,6 @@ public class UCS {
         end_word = end;
         path = search();
         cost = getCost(path);
-        System.out.println("Test");
     }
 
     public String[] search() {

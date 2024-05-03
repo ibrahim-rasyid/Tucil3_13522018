@@ -10,8 +10,17 @@ import misc.*;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        UCS u = new UCS("null", "null");
-        GBFS g = new GBFS("null", "null");
-        AStar a = new AStar("null", "null");
+        FileHandler fh = new FileHandler();
+        Set<String> dict = fh.readDict("src/dictionary/dictionary.txt");
+        InputHandler ih = new InputHandler();
+        String[] words = ih.getWords(dict);
+        Integer type = ih.getAlgoType();
+        if (type == 1) {
+
+        } else if (type == 2) {
+
+        } else {
+            
+        }
     }
 }
