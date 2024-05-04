@@ -18,4 +18,15 @@ public class FileHandler {
         }
         return dict;
     }
+
+    // Trim dictionary to only store word with certain length
+    public Set<String> trimDict(Set<String> dict, int length) {
+        Set<String> new_dict = new HashSet<>();
+        for (String s:dict) {
+            if (s.length() == length) {
+                new_dict.add(s);
+            }
+        }
+        return new_dict;
+    }
 }
