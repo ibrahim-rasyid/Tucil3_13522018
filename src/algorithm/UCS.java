@@ -36,13 +36,12 @@ public class UCS {
         pq.add(start_node);
         visited.add(start_word);
 
-        long start_time = System.nanoTime();
+        long start_time = System.currentTimeMillis();
         while (!pq.isEmpty()) {
             Node current_node = pq.poll();
-            // System.out.println(current_node.getInfo());
             if (current_node.getInfo().equals(end_word)) {
-                long end_time = System.nanoTime();
-                exe_time = (end_time-start_time)/1000000;
+                long end_time = System.currentTimeMillis();
+                exe_time = (end_time-start_time);
                 word_searched = visited.size();
                 return makePath(start_word, end_word, parent);
             }
@@ -56,8 +55,8 @@ public class UCS {
                 }
             }
         }
-        long end_time = System.nanoTime();
-        exe_time = (end_time-start_time)/1000000;
+        long end_time = System.currentTimeMillis();
+        exe_time = (end_time-start_time);
         return null;
     }
 
@@ -116,6 +115,29 @@ public class UCS {
         } else {
             System.out.printf("No path found from %s to %s\n", start_word, end_word);
         }
+    }
+
+    public String getResult() {
+        String res = "";
+        if (path != null) {
+            // System.out.printf("%s found from %d words in %d ms\n", end_word, word_searched, exe_time);
+            res += end_word + " found from " + word_searched + " words in " + exe_time + " ms.\n";
+            // System.out.println("Path of search: ");
+            res += "Path of search:";
+            for (int i=0; i<path.size(); i++) {
+                if (i != 0) {
+                    // System.out.print(" -> ");
+                    res += " -> ";
+                }
+                // System.out.print(path.get(i));
+                res += path.get(i);
+            }
+            res += "\n";
+        } else {
+            // System.out.printf("No path found from %s to %s\n", start_word, end_word);
+            res += "No path found from " + start_word + " to " + end_word + "\n";
+        }
+        return res;
     }
 
     public List<String> getPath() {
