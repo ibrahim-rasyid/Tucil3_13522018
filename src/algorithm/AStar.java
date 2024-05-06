@@ -23,11 +23,19 @@ public class AStar {
 
     private long exe_time;
 
-    public AStar(String start, String end, Set<String> dict) {
-        start_word = start;
-        end_word = end;
+    public AStar(String start, String end, Set<String> dict) throws Exception {
+        start_word = start.toUpperCase();
+        end_word = end.toUpperCase();
         this.dict = dict;
-        path = search();
+        if (start_word.length() != end_word.length()) {
+            Exception e = new WordLengthNotSameException();
+            throw e;
+        } else if (!(dict.contains(start_word.toUpperCase()) && dict.contains(end_word.toUpperCase()))) {
+            Exception e = new WordNotFoundException();
+            throw e;
+        } else {
+            path = search();
+        }
         cost = getFunc(end_word);
     }
 
@@ -135,7 +143,7 @@ public class AStar {
             // System.out.printf("%s found from %d words in %d ms\n", end_word, word_searched, exe_time);
             res += end_word + " found from " + word_searched + " words in " + exe_time + " ms.\n";
             // System.out.println("Path of search: ");
-            res += "Path of search:";
+            res += "Path of search:\n";
             for (int i=0; i<path.size(); i++) {
                 if (i != 0) {
                     // System.out.print(" -> ");

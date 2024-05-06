@@ -5,13 +5,13 @@ import java.io.Reader;
 import java.io.File;
 import java.util.*;
 
-import algorithm.*;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
+import algorithm.*;
 import misc.*;
 
 
@@ -26,6 +26,7 @@ public class Main extends Application {
             primary_stage.setScene(scene);
             primary_stage.show();
         } catch (Exception e) {
+            System.out.println(e.getMessage());
         }
     }
 
@@ -38,15 +39,19 @@ public class Main extends Application {
         // String end_word = words[1].toUpperCase();
         // dict = fh.trimDict(dict, start_word.length());
         // Integer type = ih.getAlgoType();
-        // if (type == 1) {
-        //     UCS search = new UCS(start_word, end_word, dict);
-        //     search.showResult();
-        // } else if (type == 2) {
-        //     GBFS search = new GBFS(start_word, end_word, dict);
-        //     search.showResult();
-        // } else {
-        //     AStar search = new AStar(start_word, end_word, dict);
-        //     search.showResult();
+        // try {
+        //     if (type == 1) {
+        //         UCS search = new UCS(start_word, end_word, dict);
+        //         search.showResult();
+        //     } else if (type == 2) {
+        //         GBFS search = new GBFS(start_word, end_word, dict);
+        //         search.showResult();
+        //     } else {
+        //         AStar search = new AStar(start_word, end_word, dict);
+        //         search.showResult();
+        //     }
+        // } catch (Exception e) {
+
         // }
         launch(args);
     }
