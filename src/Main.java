@@ -1,20 +1,10 @@
-import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.IOException;
-import java.io.Reader;
-import java.io.File;
-import java.util.*;
-
-import javax.swing.plaf.synth.SynthEditorPaneUI;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import algorithm.*;
-import misc.*;
 
 
 public class Main extends Application {
@@ -32,6 +22,7 @@ public class Main extends Application {
     }
 
     public static void main(String[] args) throws IOException {
+        /* Code of CLI */
         // FileHandler fh = new FileHandler();
         // Set<String> dict = fh.readDict("src/dictionary/dictionary.txt");
         // InputHandler ih = new InputHandler();
