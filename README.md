@@ -5,7 +5,7 @@
 
 - [Deskripsi](#deskripsi)
 - [Requirement](#requirement)
-- [Setup/Kompilasi Program](#setupkompilasi-program)
+- [Setup Program](#setup-program)
 - [Cara Menjalankan Program](#cara-menjalankan-program)
 - [Kontributor](#kontributor)
 
@@ -17,7 +17,7 @@ Pada program ini, kami mengimplementasikan tiga algoritma tersebut untuk menyele
 
 ## Requirement
 
-- Java SDK
+- Java JDK ver. 17.0.8
 - JavaFX (Download [disini](https://gluonhq.com/products/javafx/))
 
 ## Setup Program
@@ -29,12 +29,11 @@ git clone https://github.com/ibrahim-rasyid/Tucil3_13522018
 
 ## Cara Menjalankan Program
 
-- Buka command line pada folder program
-- Jalankan perintah berikut pada command line
-```
-javac
-```
+- Ubah baris pada run.bat pada bagian dengan tanda petik dengan path dari JavaFX yang terinstall pada perangkat anda. Pastikan menyertakan folder lib
+- Jalankan file run.bat. Program akan langsung dijalankan
+- Masukkan start word dan end word pada text field yang tersedia, lalu pilih algoritma yang diinginkan (UCS, Greedy BFS atau A*)
+- Tekan button 'Search!', lalu program akan menampilkan hasil pencarian
 
 ## Kontributor
 
-- [Ibrahim Ihsan Rasyid]() - 13522018
+- [Ibrahim Ihsan Rasyid](https://github.com/ibrahim-rasyid) - 13522018
