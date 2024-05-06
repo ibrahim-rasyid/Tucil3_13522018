@@ -11,19 +11,29 @@
 
 ## Deskripsi
 
-Lorem Ipsum
+Algoritma UCS, Greedy Best First Search, dan A* merupakan salah tiga algoritma pencarian pada suatu graf untuk mendapatkan suatu simpul tujuan dari sebuah simpul asal tertentu.
+
+Pada program ini, kami mengimplementasikan tiga algoritma tersebut untuk menyelesaikan permainan word ladder serta menganalisis keoptimalan ketiga algoritma tersebut.
 
 ## Requirement
 
-- Lorem Ipsum
+- Java SDK
+- JavaFX (Download [disini](https://gluonhq.com/products/javafx/))
 
-## Setup/Kompilasi Program
+## Setup Program
 
-- Lorem Ipsum
+- Download atau clone repository dengan perintah berikut
+```
+git clone https://github.com/ibrahim-rasyid/Tucil3_13522018
+```
 
 ## Cara Menjalankan Program
 
-- Lorem Ipsum
+- Buka command line pada folder program
+- Jalankan perintah berikut pada command line
+```
+javac
+```
 
 ## Kontributor
 
