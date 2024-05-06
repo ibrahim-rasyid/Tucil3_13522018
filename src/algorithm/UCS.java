@@ -1,8 +1,7 @@
 package algorithm;
 
-import java.net.http.WebSocketHandshakeException;
+import algorithm.algoException;
 import java.util.*;
-import algorithm.Node;
 
 public class UCS {
     private String start_word;

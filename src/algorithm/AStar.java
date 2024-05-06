@@ -1,12 +1,7 @@
 package algorithm;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.PriorityQueue;
-import java.util.Set;
+import algorithm.algoException;
+import java.util.*;
 
 public class AStar {
     private String start_word;
