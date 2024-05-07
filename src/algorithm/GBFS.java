@@ -82,7 +82,6 @@ public class GBFS {
                     Node child_node = new Node(child_word, getHeuristic(child_word));
                     pq.add(child_node);
                     visited.add(child_word);
-                    break;
 
                 }
             }
@@ -92,6 +91,25 @@ public class GBFS {
         exe_time = (end_time-start_time);
 
         return null;
+    }
+    
+    // Fungsi heuristik Greedy BFS (f(n) = h(n))
+    public int getHeuristic(String word) {
+
+        int heuristic = 0;
+        char[] end_chars = end_word.toCharArray();
+        char[] word_chars = word.toCharArray();
+
+        for (int i=0; i<word_chars.length; i++) {
+
+            if (end_chars[i] != word_chars[i]) {
+
+                heuristic++;
+
+            }
+        }
+
+        return heuristic;
     }
 
     // Membuat path dari start ke end dengan map dari pasangan simpul kata yang bertetangga
@@ -139,25 +157,6 @@ public class GBFS {
         }
 
         return child_node;
-    }
-
-    // Fungsi heuristik Greedy BFS (f(n) = h(n))
-    public int getHeuristic(String word) {
-
-        int heuristic = 0;
-        char[] end_chars = end_word.toCharArray();
-        char[] word_chars = word.toCharArray();
-
-        for (int i=0; i<word_chars.length; i++) {
-
-            if (end_chars[i] != word_chars[i]) {
-
-                heuristic++;
-
-            }
-        }
-
-        return heuristic;
     }
 
     // Menampilkan hasil pencarian dengan CLI (sebelum implementasi GUI)

@@ -43,7 +43,6 @@ public class UCS {
 
         }
 
-        cost = getCost(end_word);
     }
 
     // UCS main algorithm
@@ -79,7 +78,7 @@ public class UCS {
                 if (!visited.contains(child_word)) {
 
                     parent.put(child_word, current_node.getInfo());
-                    Node child_node = new Node(child_word, getCost(child_word));
+                    Node child_node = new Node(child_word, getCost(child_word, parent));
                     pq.add(child_node);
                     visited.add(child_word);
 
@@ -89,8 +88,24 @@ public class UCS {
 
         long end_time = System.currentTimeMillis();
         exe_time = (end_time-start_time);
-        
+
         return null;
+    }
+    
+    // Fungsi menentukan biaya UCS (f(n) = g(n))
+    public int getCost(String word, Map<String, String> parentMap) {
+        
+        int cost = 0;
+        String current = word;
+        while (!current.equals(start_word)) {
+            cost++;
+            current = parentMap.get(current);
+            if (current == null) {
+                break;
+            }
+        }
+        
+        return cost;
     }
 
     // Membuat path dari start ke end dengan map dari pasangan simpul kata yang bertetangga
@@ -114,7 +129,7 @@ public class UCS {
         path.add(0, start);
         return path;
     }
-    
+
     // Membuat list of simpul anak dari sebuah simpul kata
     public List<String> getChildNode(String word) {
 
@@ -138,25 +153,6 @@ public class UCS {
         }
 
         return child_node;
-    }
-
-    // Fungsi menentukan biaya UCS (f(n) = g(n))
-    public int getCost(String word) {
-
-        int cost = 0;
-        char[] start_chars = start_word.toCharArray();
-        char[] word_chars = word.toCharArray();
-
-        for (int i=0; i<word_chars.length; i++) {
-
-            if (start_chars[i] != word_chars[i]) {
-
-                cost++;
-
-            }
-        }
-
-        return cost;
     }
 
     // Menampilkan hasil pencarian dengan CLI (sebelum implementasi GUI)

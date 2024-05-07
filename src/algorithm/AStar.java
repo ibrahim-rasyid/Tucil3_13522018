@@ -42,8 +42,6 @@ public class AStar {
             path = search();
 
         }
-
-        cost = getFunc(end_word);
     }
 
     // A* main algorithm
@@ -79,7 +77,7 @@ public class AStar {
                 if (!visited.contains(child_word)) {
 
                     parent.put(child_word, current_node.getInfo());
-                    Node child_node = new Node(child_word, getFunc(child_word));
+                    Node child_node = new Node(child_word, getFunc(child_word, parent));
                     pq.add(child_node);
                     visited.add(child_word);
 
@@ -91,6 +89,35 @@ public class AStar {
         exe_time = (end_time-start_time);
 
         return null;
+    }
+    
+    // Fungsi dari A* (f(n) = g(n) + h(n))
+    public int getFunc(String word, Map<String, String> parentMap) {
+        
+        int cost = 0;
+        int heuristic = 0;
+        char[] end_chars = end_word.toCharArray();
+        char[] word_chars = word.toCharArray();
+
+        for (int i=0; i<word_chars.length; i++) {
+
+            if (end_chars[i] != word_chars[i]) {
+
+                heuristic++;
+
+            }
+        }
+
+        String current = word;
+        while (!current.equals(start_word)) {
+            cost++;
+            current = parentMap.get(current);
+            if (current == null) {
+                break;
+            }
+        }
+
+        return cost+heuristic;
     }
 
     // Membuat path dari start ke end dengan map dari pasangan simpul kata yang bertetangga
@@ -138,36 +165,6 @@ public class AStar {
         }
 
         return child_node;
-    }
-
-    // Fungsi dari A* (f(n) = g(n) + h(n))
-    public int getFunc(String word) {
-        
-        int cost = 0;
-        int heuristic = 0;
-        char[] start_chars = start_word.toCharArray();
-        char[] end_chars = end_word.toCharArray();
-        char[] word_chars = word.toCharArray();
-
-        for (int i=0; i<word_chars.length; i++) {
-
-            if (end_chars[i] != word_chars[i]) {
-
-                heuristic++;
-
-            }
-        }
-
-        for (int i=0; i<word_chars.length; i++) {
-
-            if (start_chars[i] != word_chars[i]) {
-
-                cost++;
-
-            }
-        }
-        
-        return cost+heuristic;
     }
 
     // Menampilkan hasil pencarian dengan CLI (sebelum implementasi GUI)
