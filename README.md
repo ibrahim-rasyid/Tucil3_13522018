@@ -26,10 +26,10 @@ Pada program ini, kami mengimplementasikan tiga algoritma tersebut untuk menyele
 ```
 git clone https://github.com/ibrahim-rasyid/Tucil3_13522018
 ```
+- Ubah baris pada run.bat pada bagian dengan tanda petik dengan path dari JavaFX yang terinstall pada perangkat anda. Pastikan menyertakan folder lib
 
 ## Cara Menjalankan Program
 
-- Ubah baris pada run.bat pada bagian dengan tanda petik dengan path dari JavaFX yang terinstall pada perangkat anda. Pastikan menyertakan folder lib
 - Jalankan file run.bat. Program akan langsung dijalankan
 - Masukkan start word dan end word pada text field yang tersedia, lalu pilih algoritma yang diinginkan (UCS, Greedy BFS atau A*)
 - Tekan button 'Search!', lalu program akan menampilkan hasil pencarian
